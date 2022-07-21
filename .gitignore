@@ -1,0 +1,3 @@
+quantbot/*
+__pycache__/*
+quantlib.egg-info/*
