@@ -34,11 +34,12 @@ def get_sp500_df():
     for inst in instruments:
         inst_df = ohlcvs[inst]
         columns = list(map(lambda x: "{} {}".format(inst, x), inst_df.columns))
-        df[columns ] = inst_df
+        df[columns] = inst_df
 
     return df, instruments
 
 def extend_dataframe(traded, df):
+    df.index = pd.Series(df.index).apply(lambda x: format_date(x))
     open_cols = list(map(lambda x: str(x) + " open", traded))
     high_cols = list(map(lambda x: str(x) + " high", traded))
     low_cols = list(map(lambda x: str(x) + " low", traded))
@@ -51,8 +52,7 @@ def extend_dataframe(traded, df):
     for inst in traded:
         historical_data["{} % ret".format(inst)] = historical_data["{} close".format(inst)] / historical_data["{} close".format(inst)].shift(1) - 1
         historical_data["{} % ret vol".format(inst)] = historical_data["{} % ret".format(inst)].rolling(25).std()
-        historical_data["{} active".format(inst)] = historical_data["{} close".format(inst)] == historical_data["{} close".format(inst)].shift(1)
-    df.index = pd.Series(df.index).apply(lambda x: format_date(x))
+        historical_data["{} active".format(inst)] = historical_data["{} close".format(inst)] != historical_data["{} close".format(inst)].shift(1)
     return historical_data
 
 def format_date(date):

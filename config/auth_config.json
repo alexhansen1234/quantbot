@@ -1,0 +1,11 @@
+{
+  "oan_acc_id": "101-001-22853798-001",
+  "oan_token": "ec6b6141a374bf74548245a3ba1f4541-277c6f0572092ceb70b8fc8770aea563",
+  "oan_env": "practice",
+  "kucoin_api_key": "62dc2d022b968a000153b082",
+  "kucoin_api_secret": "d9a53751-4336-489c-8c60-3b6bf8954de6",
+  "kucoin_api_passphrase": "4v9nw2eQVkQJ4aC",
+  "kucoin_futures_api_key": "62dc805937a609000198b436",
+  "kucoin_futures_api_secret": "d6312af5-7793-4ea1-983e-64f97593793d",
+  "kucoin_futures_api_passphrase": "9qyBDCTMEPuYMD5"
+}
